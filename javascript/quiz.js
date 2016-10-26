@@ -30,7 +30,6 @@ function tree (treeObject) {
 
 }
 
-
 // //object with two key/values
 // var object = {Heightkey: document.getElementById(height), 
 // 	          Characterkey: document.getElementById(character)};
