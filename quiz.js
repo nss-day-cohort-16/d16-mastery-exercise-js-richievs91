@@ -14,45 +14,37 @@
 var treeHeight = document.getElementById("height");
 var treeChar = document.getElementById("character");
 
-function tree (treeObject) {
-	console.log("treeObject", treeObject);
 
-	if (treeHeight === "" || treeChar === "") {
+
+// //event listener for enter key and clicking grow tree button
+growTreeBtn = document.getElementById("growtree");
+growTreeBtn.addEventListener("click", alert);
+// console.log("growTreeBtn", growTreeBtn);
+
+function alert (click) {
+	if (click.keyCode === 13) {
+		if (treeHeight.value === "" || treeChar.value === "") {
 		alert("Please enter a value in both fields")
+	}
 	}
 
 	else {
-		for (var i = 0; i < treeHeight; i++) {
+		var tree = {
+			height: treeHeight.value,
+			char: treeChar.value
+		}
+		grow(tree);
+
+}};
+
+function grow (tree) {console.log("grow", tree.height);
+	for (var i = 0; i < tree.height; i++) {
+			var space = " ";	
+			var startTree = (i * 2) + 1;
+			var buildTree = (tree.height - 1) - i;
+			console.log("Fully Built Tree: " + space.repeat(buildTree) + tree.char.repeat(startTree));
 			
-			var builtTree = " ".repeat(treeHeight - i);
-			builtTree += treeChar.repeat((2*i) + 1);
-			console.log(treeContents);
-
-}
-
-// //object with two key/values
-// var object = {Heightkey: document.getElementById(height), 
-// 	          Characterkey: document.getElementById(character)};
-
-
-
-
-
-//event listener for enter key and clicking grow tree button
-document.getElementById("growtree").addEventListener("click", tree);
-
-
-
-treeHeight.addEventListener("keypress", function() {
-	if (event.keyCode === 13) {
-		submit.click();
-	}}
-
-
-treeChar.addEventListener("keypress", function() {
-	if (event.keyCode === 13) {
-		submit.click();
-	}
+}};
 
 
 
